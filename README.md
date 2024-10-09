@@ -1,1 +1,1 @@
-# project5002
+#skin disease recognition system
