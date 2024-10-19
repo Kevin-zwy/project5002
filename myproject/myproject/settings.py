@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     "firstWEB",
     'rest_framework',
+    'api'
 ]
 
 MIDDLEWARE = [

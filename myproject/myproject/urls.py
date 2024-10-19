@@ -23,6 +23,7 @@ from firstWEB import views
 from django.urls import path, include, re_path
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include('firstWEB.urls')) 
+    path('', include('firstWEB.urls')),
+    path('api/', include('api.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
