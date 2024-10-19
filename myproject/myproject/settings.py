@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8080',  # Vue 前端的地址
+    'http://localhost:4000',  # Vue 前端的地址
 ]
 
 # Application definition
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'corsheaders',
-    "firstWEB"
+    "firstWEB",
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
