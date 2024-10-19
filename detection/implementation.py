@@ -50,7 +50,8 @@ model = CustomResNet50(num_classes=num_classes).to(device)
 model = CustomResNet50(num_classes=num_classes)
 
 # Load the trained weights
-loaded_model = torch.load(r'D:\project\5002\myproject\detection\resnet50_skin_disease_model.pth',weights_only=False)
+# loaded_model = torch.load(r'D:\project\5002\myproject\detection\resnet50_skin_disease_model.pth',weights_only=False)
+loaded_model = torch.load(r'*.pth',weights_only=False)
 
 # Check if the loaded file is a dictionary (state_dict) or the model itself
 if isinstance(loaded_model, dict):
@@ -91,7 +92,7 @@ def predict_image(image_path, model, device, class_names):
     return predicted_class_name
 
 # Upload image or specify image path
-image_path = r'C:\Users\123\Desktop\project5001\微信图片_20241016162227.png' # 替换为实际路径
+image_path = r'C:\Users\123\Desktop\project5001\�?信图片_20241016162227.png' # 替换为实际路�?
 
 # Predict image category
 predicted_class = predict_image(image_path, model, device, class_names)
