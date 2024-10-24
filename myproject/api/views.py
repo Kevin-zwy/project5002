@@ -139,10 +139,10 @@ class SkinImageViewSet(viewsets.ModelViewSet):
             model_densenet = CustomDenseNet121(num_classes=num_classes).to(device)
             model_mobilenetv2 = CustomMobileNetV2(num_classes=num_classes).to(device)
 
-            # model_resnet = CustomResNet50(num_classes=num_classes)
+    
 
 
-            loaded_model_resnet = torch.load(r'D:\project\5002\myproject\detection\resnet50_skin_disease_model.pth', weights_only=False)
+            loaded_model_resnet = torch.load(r'D:\project\5002\myproject\detection\resnet50_skin_disease_model.pth', weights_only=False)#
             loaded_model_densenet = torch.load(r'D:\project\5002\myproject\detection\DenseNet121_skin_disease_model_29.pth', weights_only=False)
             loaded_model_mobilenetv2 = torch.load(r'D:\project\5002\myproject\detection\mobilenet__skin_disease_model.pth', weights_only=False)
             # Check if the loaded file is a dictionary (state_dict) or the model itself
@@ -161,8 +161,7 @@ class SkinImageViewSet(viewsets.ModelViewSet):
             loaded_model_mobilenetv2.to(device)
 
             models=[model_resnet,model_densenet,model_mobilenetv2]
-                # Upload image or specify image path
-            image_path = r'C:\Users\123\Desktop\project5001\微信图片_20241016162227.png' #path
+
             
             prediction = predict_image_voting(img_path, models, device, class_names)
             # 获取解释和建议
