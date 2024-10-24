@@ -142,9 +142,9 @@ class SkinImageViewSet(viewsets.ModelViewSet):
     
 
 
-            loaded_model_resnet = torch.load(r'D:\project\5002\myproject\detection\resnet50_skin_disease_model.pth', weights_only=False)#
-            loaded_model_densenet = torch.load(r'D:\project\5002\myproject\detection\DenseNet121_skin_disease_model_29.pth', weights_only=False)
-            loaded_model_mobilenetv2 = torch.load(r'D:\project\5002\myproject\detection\mobilenet__skin_disease_model.pth', weights_only=False)
+            loaded_model_resnet = torch.load(r'D:\project\project5002-backend\detection\resnet50_skin_disease_model.pth', weights_only=False)#
+            loaded_model_densenet = torch.load(r'D:\project\project5002-backend\detection\DenseNet121_skin_disease_model_29.pth', weights_only=False)
+            loaded_model_mobilenetv2 = torch.load(r'D:\project\project5002-backend\detection\mobilenet__skin_disease_model.pth', weights_only=False)
             # Check if the loaded file is a dictionary (state_dict) or the model itself
             if isinstance(loaded_model_resnet, dict):
                 model_resnet.load_state_dict(loaded_model_resnet)
