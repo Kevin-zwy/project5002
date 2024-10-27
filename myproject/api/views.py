@@ -13,8 +13,8 @@ import sys
 import os
 
 # path = 'D:\\project\\5002\\myproject\\api'
-# sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from .implementation import predict_image_voting,CustomDenseNet121,CustomMobileNetV2,CustomResNet50
 
 class_info = {
