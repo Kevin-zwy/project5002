@@ -3,13 +3,10 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import datasets, transforms, models
-from torch.utils.data import DataLoader
-from torchvision.datasets import ImageFolder
 from PIL import Image
 class CustomResNet50(nn.Module):
     def __init__(self, num_classes):

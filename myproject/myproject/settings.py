@@ -130,7 +130,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-#�? settings.py �?�?保配�?了媒体文件的存储位置
 import os
  
 MEDIA_URL = '/media/'
