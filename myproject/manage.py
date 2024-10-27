@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os
@@ -9,12 +10,7 @@ import torch.optim as optim
 from torchvision import datasets, transforms, models
 from torch.utils.data import DataLoader
 from torchvision.datasets import ImageFolder
-# from google.colab import files
-import torch
-import torchvision.models as models
-import torch
 from PIL import Image
-from torchvision import transforms
 class CustomResNet50(nn.Module):
     def __init__(self, num_classes):
         super(CustomResNet50, self).__init__()
@@ -82,10 +78,6 @@ class CustomMobileNetV2(nn.Module):
         x = self.fc2(x)
         return x
 
-
-
-
-
 def main():
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
@@ -103,4 +95,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -1,4 +1,3 @@
-from torchvision import transforms
 from PIL import Image
 from rest_framework.response import Response
 from rest_framework import status, viewsets
@@ -10,17 +9,13 @@ import torch.optim as optim
 from torchvision import datasets, transforms, models
 from torch.utils.data import DataLoader
 from torchvision.datasets import ImageFolder
-import torchvision.models as models
-
 import sys
 import os
-path = 'D:\\project\\5002\\myproject\\api'
-sys.path.append(os.path.abspath(path))
-from .implementation_final import predict_image_voting,CustomDenseNet121,CustomMobileNetV2,CustomResNet50
 
+# path = 'D:\\project\\5002\\myproject\\api'
+# sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-                
-
+from .implementation import predict_image_voting,CustomDenseNet121,CustomMobileNetV2,CustomResNet50
 
 class_info = {
     'Acne and Rosacea Photos': {
@@ -124,7 +119,6 @@ class SkinImageViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         # ���л��ϴ���ͼƬ
         serializer = self.get_serializer(data=request.data)
-        # return Response({'result': "HELLO"}, status=status.HTTP_201_CREATED) 
         if serializer.is_valid():
             serializer.save()
             
@@ -139,12 +133,13 @@ class SkinImageViewSet(viewsets.ModelViewSet):
             model_densenet = CustomDenseNet121(num_classes=num_classes).to(device)
             model_mobilenetv2 = CustomMobileNetV2(num_classes=num_classes).to(device)
 
-    
+            loaded_model_resnet = torch.load(r'../detection/resnet50_skin_disease_model.pth', weights_only=False, map_location=device)
+            loaded_model_densenet = torch.load(r'../detection/DenseNet121_skin_disease_model_29.pth', weights_only=False, map_location=device)
+            loaded_model_mobilenetv2 = torch.load(r'../detection/mobilenet__skin_disease_model.pth', weights_only=False, map_location=device)
+            # loaded_model_resnet = torch.load(r'D:\project\project5002-backend\detection\resnet50_skin_disease_model.pth', weights_only=False)#
+            # loaded_model_densenet = torch.load(r'D:\project\project5002-backend\detection\DenseNet121_skin_disease_model_29.pth', weights_only=False)
+            # loaded_model_mobilenetv2 = torch.load(r'D:\project\project5002-backend\detection\mobilenet__skin_disease_model.pth', weights_only=False)
 
-
-            loaded_model_resnet = torch.load(r'D:\project\project5002-backend\detection\resnet50_skin_disease_model.pth', weights_only=False)#
-            loaded_model_densenet = torch.load(r'D:\project\project5002-backend\detection\DenseNet121_skin_disease_model_29.pth', weights_only=False)
-            loaded_model_mobilenetv2 = torch.load(r'D:\project\project5002-backend\detection\mobilenet__skin_disease_model.pth', weights_only=False)
             # Check if the loaded file is a dictionary (state_dict) or the model itself
             if isinstance(loaded_model_resnet, dict):
                 model_resnet.load_state_dict(loaded_model_resnet)
@@ -164,7 +159,7 @@ class SkinImageViewSet(viewsets.ModelViewSet):
 
             
             prediction = predict_image_voting(img_path, models, device, class_names)
-            # 获取解释和建议
+            # 获取解释和建�?
             explanation = class_info[prediction]['explanation']
             suggestion = class_info[prediction]['suggestion']
             return Response({
@@ -176,7 +171,7 @@ class SkinImageViewSet(viewsets.ModelViewSet):
         else:
             print(serializer.errors)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            # �����������
+            # �����������?
         #     return Response({'result': "YES"}, status=status.HTTP_201_CREATED)
         # else:
         #     print(serializer.errors)
