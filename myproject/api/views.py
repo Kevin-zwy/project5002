@@ -129,9 +129,9 @@ class SkinImageViewSet(viewsets.ModelViewSet):
             model_densenet = CustomDenseNet121(num_classes=num_classes).to(device)
             model_mobilenetv2 = CustomMobileNetV2(num_classes=num_classes).to(device)
 
-            loaded_model_resnet = torch.load(r'../detection/resnet50_skin_disease_model.pth', weights_only=False, map_location=device)
-            loaded_model_densenet = torch.load(r'../detection/DenseNet121_skin_disease_model_29.pth', weights_only=False, map_location=device)
-            loaded_model_mobilenetv2 = torch.load(r'../detection/mobilenet__skin_disease_model.pth', weights_only=False, map_location=device)
+            loaded_model_resnet = torch.load(r'./detection/resnet50_skin_disease_model.pth', weights_only=False, map_location=device)
+            loaded_model_densenet = torch.load(r'./detection/DenseNet121_skin_disease_model_29.pth', weights_only=False, map_location=device)
+            loaded_model_mobilenetv2 = torch.load(r'./detection/mobilenet__skin_disease_model.pth', weights_only=False, map_location=device)
 
             # Check if the loaded file is a dictionary (state_dict) or the model itself
             if isinstance(loaded_model_resnet, dict):
@@ -158,7 +158,7 @@ class SkinImageViewSet(viewsets.ModelViewSet):
                 'result': "YES", 
                 'prediction': prediction, 
                 'explanation': explanation, 
-    '           suggestion': suggestion
+                'suggestion': suggestion
             }, status=status.HTTP_201_CREATED)
         else:
             print(serializer.errors)
