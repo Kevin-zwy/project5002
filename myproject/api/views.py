@@ -17,95 +17,95 @@ from .implementation import predict_image_voting, CustomDenseNet121, CustomMobil
 
 class_info = {
     'Acne and Rosacea Photos': {
-        'explanation': 'Acne and rosacea are common skin conditions characterized by redness and pustules on the face, chest, and back.',
+        'description': 'Acne and rosacea are common skin conditions characterized by redness and pustules on the face, chest, and back.',
         'suggestion': 'It is advisable to use over-the-counter acne treatments and keep the skin clean.',
     },
     'Actinic Keratosis Basal Cell Carcinoma and other Malignant Lesions': {
-        'explanation': 'Actinic keratosis and other lesions may be precursors to malignant conditions, often found on skin exposed to the sun for prolonged periods.',
+        'description': 'Actinic keratosis and other lesions may be precursors to malignant conditions, often found on skin exposed to the sun for prolonged periods.',
         'suggestion': 'It is recommended to consult a dermatologist for timely examination and treatment.',
     },
     'Atopic Dermatitis Photos': {
-        'explanation': 'Atopic dermatitis is a common allergic skin condition, especially in infants, characterized by dry and itchy skin.',
+        'description': 'Atopic dermatitis is a common allergic skin condition, especially in infants, characterized by dry and itchy skin.',
         'suggestion': 'Keep the skin moisturized, avoid irritants, and use gentle skincare products.',
     },
     'Bullous Disease Photos': {
-        'explanation': 'Bullous diseases are a class of skin conditions that cause blisters on the skin, often accompanied by itching and pain.',
+        'description': 'Bullous diseases are a class of skin conditions that cause blisters on the skin, often accompanied by itching and pain.',
         'suggestion': 'It is advised to avoid scratching, keep the blistered area clean, and consult a doctor.',
     },
     'Cellulitis Impetigo and other Bacterial Infections': {
-        'explanation': 'Cellulitis and impetigo are bacterial infections characterized by redness, pain, and fever.',
+        'description': 'Cellulitis and impetigo are bacterial infections characterized by redness, pain, and fever.',
         'suggestion': 'Prompt medical attention is required, and antibiotics may be necessary.',
     },
     'Eczema Photos': {
-        'explanation': 'Eczema is a chronic inflammatory skin condition characterized by redness, itching, and dryness.',
+        'description': 'Eczema is a chronic inflammatory skin condition characterized by redness, itching, and dryness.',
         'suggestion': 'Keep the skin moisturized and avoid irritants and allergens.',
     },
     'Exanthems and Drug Eruptions': {
-        'explanation': 'Drug eruptions are skin reactions caused by drug allergies, typically presenting as rashes.',
+        'description': 'Drug eruptions are skin reactions caused by drug allergies, typically presenting as rashes.',
         'suggestion': 'Stop taking the suspected medication immediately and consult a doctor.',
     },
     'Hair Loss Photos Alopecia and other Hair Diseases': {
-        'explanation': 'Hair loss can be caused by various factors, including genetics, stress, and nutritional deficiencies.',
+        'description': 'Hair loss can be caused by various factors, including genetics, stress, and nutritional deficiencies.',
         'suggestion': 'It is recommended to consult a specialist for relevant examination and treatment.',
     },
     'Herpes HPV and other STDs Photos': {
-        'explanation': 'Genital herpes and human papillomavirus (HPV) are common sexually transmitted diseases that may present as sores or lesions in the genital area.',
+        'description': 'Genital herpes and human papillomavirus (HPV) are common sexually transmitted diseases that may present as sores or lesions in the genital area.',
         'suggestion': 'Seek medical attention promptly for testing and consultation.',
     },
     'Light Diseases and Disorders of Pigmentation': {
-        'explanation': 'Pigmentation disorders may lead to uneven skin coloration, often due to UV exposure and genetic factors.',
+        'description': 'Pigmentation disorders may lead to uneven skin coloration, often due to UV exposure and genetic factors.',
         'suggestion': 'Use sunscreen to protect the skin and consult a dermatologist if necessary.',
     },
     'Lupus and other Connective Tissue diseases': {
-        'explanation': 'Lupus is an autoimmune disease that may affect the skin and other organs, presenting with rashes and joint pain.',
+        'description': 'Lupus is an autoimmune disease that may affect the skin and other organs, presenting with rashes and joint pain.',
         'suggestion': 'Regular check-ups are recommended, following the doctor\'s treatment plan.',
     },
     'Melanoma Skin Cancer Nevi and Moles': {
-        'explanation': 'Melanoma is a malignant skin cancer typically presenting as changing moles or new pigment lesions.',
+        'description': 'Melanoma is a malignant skin cancer typically presenting as changing moles or new pigment lesions.',
         'suggestion': 'It is advisable to seek medical attention promptly for skin examinations.',
     },
     'Nail Fungus and other Nail Disease': {
-        'explanation': 'Nail fungus infections can cause discoloration, thickening, and brittleness of the nails.',
+        'description': 'Nail fungus infections can cause discoloration, thickening, and brittleness of the nails.',
         'suggestion': 'Keep the nails dry and clean, using antifungal medications for treatment.',
     },
     'Poison Ivy Photos and other Contact Dermatitis': {
-        'explanation': 'Contact dermatitis is caused by skin contact with irritants or allergens, usually presenting as redness and itching.',
+        'description': 'Contact dermatitis is caused by skin contact with irritants or allergens, usually presenting as redness and itching.',
         'suggestion': 'Avoid known allergens and use antihistamines to relieve symptoms.',
     },
     'Psoriasis pictures Lichen Planus and related diseases': {
-        'explanation': 'Psoriasis is a chronic skin condition characterized by red patches and silvery scales.',
+        'description': 'Psoriasis is a chronic skin condition characterized by red patches and silvery scales.',
         'suggestion': 'It is advisable to use medications to control the condition and consult a specialist.',
     },
     'Scabies Lyme Disease and other Infestations and Bites': {
-        'explanation': 'Scabies and Lyme disease are caused by parasites or bacterial infections, presenting with itching and rashes.',
+        'description': 'Scabies and Lyme disease are caused by parasites or bacterial infections, presenting with itching and rashes.',
         'suggestion': 'It is recommended to seek medical attention promptly for appropriate treatment.',
     },
     'Seborrheic Keratoses and other Benign Tumors': {
-        'explanation': 'Seborrheic keratosis is a benign skin tumor that is usually harmless but may affect appearance.',
+        'description': 'Seborrheic keratosis is a benign skin tumor that is usually harmless but may affect appearance.',
         'suggestion': 'Regular skin checks are recommended, and removal may be considered if necessary.',
     },
     'Systemic Disease': {
-        'explanation': 'Systemic diseases may affect the whole body and present with various skin symptoms.',
+        'description': 'Systemic diseases may affect the whole body and present with various skin symptoms.',
         'suggestion': 'Comprehensive examination is recommended to determine potential causes.',
     },
     'Tinea Ringworm Candidiasis and other Fungal Infections': {
-        'explanation': 'Fungal infections such as ringworm and candidiasis can cause redness and itching of the skin.',
+        'description': 'Fungal infections such as ringworm and candidiasis can cause redness and itching of the skin.',
         'suggestion': 'Use antifungal medications for treatment and keep the skin dry.',
     },
     'Urticaria Hives': {
-        'explanation': 'Urticaria is caused by allergic reactions and presents as red, raised welts on the skin.',
+        'description': 'Urticaria is caused by allergic reactions and presents as red, raised welts on the skin.',
         'suggestion': 'Avoid known allergens and consider antihistamines for relief.',
     },
     'Vascular Tumors': {
-        'explanation': 'Vascular tumors are benign tumors that typically appear as red or purple growths on the skin.',
+        'description': 'Vascular tumors are benign tumors that typically appear as red or purple growths on the skin.',
         'suggestion': 'Consult a doctor if necessary to determine if treatment is required.',
     },
     'Vasculitis Photos': {
-        'explanation': 'Vasculitis is an inflammatory condition affecting blood vessels, potentially causing skin spots or ulcers.',
+        'description': 'Vasculitis is an inflammatory condition affecting blood vessels, potentially causing skin spots or ulcers.',
         'suggestion': 'Seek medical attention promptly for detailed examination and treatment.',
     },
     'Warts Molluscum and other Viral Infections': {
-        'explanation': 'Warts and molluscum contagiosum are benign skin conditions caused by viruses, commonly found on the skin and mucous membranes.',
+        'description': 'Warts and molluscum contagiosum are benign skin conditions caused by viruses, commonly found on the skin and mucous membranes.',
         'suggestion': 'Treatment is usually not necessary, but consult a doctor if needed.',
     },
 }
@@ -152,12 +152,12 @@ class SkinImageViewSet(viewsets.ModelViewSet):
 
             
             prediction = predict_image_voting(img_path, models, device, class_names)
-            explanation = class_info[prediction]['explanation']
+            description = class_info[prediction]['description']
             suggestion = class_info[prediction]['suggestion']
             return Response({
                 'result': "YES", 
                 'prediction': prediction, 
-                'explanation': explanation, 
+                'description': description, 
                 'suggestion': suggestion
             }, status=status.HTTP_201_CREATED)
         else:
